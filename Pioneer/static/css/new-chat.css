@@ -1,0 +1,245 @@
+:root {
+    /* Color Scheme from your base.css */
+    --navy-blue: #05445e;
+    --blue-grotto: #189ab4;
+    --blue-green: #75e6da;
+    --baby-blue: #d4f1f4;
+    --light-gray: #f0f0f0;
+    --coral-accent: #FF6F61;
+    
+    /* Light mode defaults */
+    --primary-bg: #FFFFFF;
+    --secondary-bg: var(--light-gray);
+    --text-primary: #05445e;
+    --text-secondary: #4a6b7b;
+    --accent: var(--blue-grotto);
+    --user-bubble: var(--baby-blue);
+    --other-user-bubble: #e0e0e0;
+    --status-bar: #888888;
+    --input-bar: #FFFFFF;
+    --shadow-color: rgba(5, 68, 94, 0.1);
+    --error-color: #e74c3c;
+}
+
+[data-theme="dark"] {
+    /* Dark mode variables */
+    --primary-bg: #0a2d3a;
+    --secondary-bg: #0f4558;
+    --text-primary: #d4f1f4;
+    --text-secondary: #a8d8e0;
+    --accent: var(--blue-green);
+    --user-bubble: #127f9d;
+    --other-user-bubble: #1a5363;
+    --status-bar: #75e6da;
+    --input-bar: #0f4558;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --error-color: #ff8a7a;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+/* New Chat Container */
+.new-chat-container {
+    max-width: 450px;
+    margin: 0 auto;
+    height: 100vh;
+    background-color: var(--primary-bg);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--other-user-bubble);
+    border-right: 1px solid var(--other-user-bubble);
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+[data-theme="dark"] .new-chat-container {
+    border-color: rgba(117, 230, 218, 0.1);
+}
+
+/* Header */
+.new-chat-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--other-user-bubble);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.new-chat-header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy-blue);
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+[data-theme="dark"] .new-chat-header h1 {
+    color: var(--blue-green);
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Options */
+.new-chat-options {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 10px;
+    border-bottom: 1px solid var(--other-user-bubble);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.option:hover {
+    background-color: var(--secondary-bg);
+}
+
+.option-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option span {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .new-chat-container {
+        max-width: 100%;
+        border: none;
+    }
+    
+    .new-chat-header {
+        padding: 12px 15px;
+    }
+    
+    .new-chat-header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .option {
+        padding: 12px 10px;
+    }
+    
+    .option-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+/* Add these styles to your existing CSS */
+.hidden {
+    display: none;
+}
+
+.search-bar {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    color: #189ab4;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.contacts-list {
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.contact:hover {
+    background-color: #f5f5f5;
+}
+
+.contact-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-name {
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.contact-status {
+    font-size: 13px;
+    color: #666;
+}
+
+.contact-status.online {
+    color: #4CAF50;
+}
+
+.no-contacts {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+}

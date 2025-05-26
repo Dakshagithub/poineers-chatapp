@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room | Pioneer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chat-room.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+</head>
+<body>
+    <div class="chat-room-container">
+        <!-- Nav Bar -->
+        <div class="chat-room-header">
+            <a href="{% url 'home' %}" class="back-button">←</a>
+            <div class="chat-info">
+                <img id="chat-avatar" src="" alt="" class="chat-avatar">
+                <div class="chat-details">
+                    <h2 id="chat-name" class="chat-name">Loading...</h2>
+                    <p id="chat-status" class="chat-status">online</p>
+                </div>
+            </div>
+            <div class="settings-menu">
+                <button class="settings-toggle">⋮</button>
+                <div class="settings-dropdown">
+                    <a href="#">View contact</a>
+                    <a href="#">Media, links, and docs</a>
+                    <a href="#">Search</a>
+                    <a href="#">Mute notifications</a>
+                    <a href="#">Wallpaper</a>
+                    <a href="#">More</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chat Area -->
+        <div class="chat-messages">
+            <!-- Messages will be populated by JavaScript -->
+        </div>
+        
+        <!-- Message Input -->
+        <div class="message-input-container">
+            <button class="emoji-button">😊</button>
+            <div class="attachment-menu">
+                <button class="attachment-button">+</button>
+                <div class="attachment-options">
+                    <button class="attachment-option" id="attach-document">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+                        </svg>
+                        <span>Document</span>
+                    </button>
+                    <button class="attachment-option" id="attach-camera">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        <span>Camera</span>
+                    </button>
+                    <button class="attachment-option" id="attach-gallery">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
+                        <span>Gallery</span>
+                    </button>
+                </div>
+            </div>
+            <input type="text" class="message-input" placeholder="Type a message">
+            <button class="send-button">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="{% static 'js/chat-room.js' %}"></script>
+</body>
+</html>

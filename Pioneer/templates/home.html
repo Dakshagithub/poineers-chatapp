@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>"> <!-- Chat icon as favicon -->
+     
+</head>
+<body>
+    <div class="chat-app-container">
+        <!-- Nav Bar -->
+        <div class="nav-bar">
+            <h1 class="app-name">Pioneer</h1>
+            <div class="settings-menu">
+                <button class="settings-toggle">⋮</button>
+                <div class="settings-dropdown">
+                    <a href="#">Settings</a>
+                    <a href="{% url 'profile' %}">Profile</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search contacts...">
+        </div>
+        
+        
+        <ul class="chat-logs">
+            
+        </ul>
+        
+        <!-- Empty State (shown when no chats) -->
+        <div class="empty-state">
+            <div class="empty-icon">💬</div>
+            <p class="empty-text">No chats yet</p>
+            <p>Start a new conversation by tapping the + button</p>
+        </div>
+        
+        <!-- New Chat Button -->
+        <a href="{% url 'new_chat' %}" class="new-chat-button">+</a>
+
+        <!-- Avatar Modal (hidden by default) -->
+        <div class="avatar-modal">
+            <div class="avatar-modal-content">
+                <button class="close-modal">×</button>
+                <img src="" alt="Profile Picture" class="modal-avatar">
+                <h2 class="modal-name">User Name</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>
